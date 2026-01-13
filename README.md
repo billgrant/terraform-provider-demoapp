@@ -178,6 +178,20 @@ output "item_ids" {
 go test ./...
 ```
 
+## Known Issues
+
+### SQLite Concurrency
+
+Demo App uses SQLite which has limited concurrent write support. When creating multiple resources in parallel, you may see database errors.
+
+**Workaround:** Use `-parallelism=1`:
+
+```bash
+terraform apply -parallelism=1
+```
+
+This will be fixed in a future Demo App release.
+
 ## License
 
 MIT

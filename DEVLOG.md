@@ -184,6 +184,28 @@ Terraform becomes the persistence layer for a stateless demo app.
 
 ---
 
+## Known Issues
+
+### SQLite Concurrency (Demo App Bug)
+
+Demo App uses SQLite which doesn't handle concurrent writes well. When Terraform creates multiple resources in parallel, you may see:
+
+```
+Error: Error Creating Item
+API returned status 500: {"error":"database error"}
+```
+
+**Workaround:** Use `-parallelism=1` to force sequential operations:
+
+```bash
+terraform apply -parallelism=1
+terraform destroy -parallelism=1
+```
+
+**Fix:** Coming in Demo App Phase 7 — WAL mode + busy timeout will allow concurrent operations.
+
+---
+
 ## Blog Post Note
 
 Phase 4 (Docker) and Phase 5 (Provider) will be combined into one blog post since Phase 4 was short.
