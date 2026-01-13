@@ -1,0 +1,21 @@
+# Compiled provider binary
+terraform-provider-demoapp
+
+# Terraform files (in examples/)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+coverage.out
