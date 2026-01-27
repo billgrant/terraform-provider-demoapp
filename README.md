@@ -27,7 +27,7 @@ terraform {
   required_providers {
     demoapp = {
       source  = "billgrant/demoapp"
-      version = "~> 1.0"
+      version = "~> 0.1"
     }
   }
 }
@@ -100,7 +100,7 @@ terraform {
   required_providers {
     demoapp = {
       source  = "billgrant/demoapp"
-      version = "~> 1.0"
+      version = "~> 0.1"
     }
   }
 }
@@ -177,20 +177,6 @@ output "item_ids" {
 ```bash
 go test ./...
 ```
-
-## Known Issues
-
-### SQLite Concurrency
-
-Demo App uses SQLite which has limited concurrent write support. When creating multiple resources in parallel, you may see database errors.
-
-**Workaround:** Use `-parallelism=1`:
-
-```bash
-terraform apply -parallelism=1
-```
-
-This will be fixed in a future Demo App release.
 
 ## License
 
